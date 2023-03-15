@@ -9,8 +9,6 @@ from config import database
 from models.dns import dnsTable
 from models.logs import logs
 from datetime import datetime
-import sys
-
 
 
 
@@ -36,7 +34,6 @@ async def call_dns():
         for pt in ptNS:
             #find the dns of the existing ones
              found = [p for p in resultsActualdns if p.dns == str(pt)]
-             print(found)
              executeQueryToDNS = ""
              #validate if not exist create the new register and save log and audit
              if(len(found) == 0):

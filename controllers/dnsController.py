@@ -4,11 +4,8 @@ from starlette.responses import JSONResponse
 from sqlalchemy.sql import func
 from models.dns import dnsTable
 from models.logs import logs
-from dto.domainDTO import domainDTO
 from starlette.responses import JSONResponse
-import json
-from datetime import date, datetime
-
+import datetime
 
 
 #build controller function to logic and principal parameters to crud
@@ -54,7 +51,7 @@ async def list_domain(request):
 
 
 #method to create_domain
-async def create_dns(request):
+async def create_domain(request):
     
     data = await request.json()
     
@@ -79,7 +76,17 @@ async def create_dns(request):
         "status": "true"
     })
     
-async def delete_dns(request):
-    data = await request.json()
+#method to delete domain
+async def delete_domain(request):
+    id = request.path_params['id']
+    query = domains.update().values(deleted_at = datetime.datetime.utcnow()).where(domains.columns.id == id)
+    await database.execute(query)
+        
+    return JSONResponse({
+        "message": "success",
+        "status": "true"
+    })
+    
+    
 
 
