@@ -1,6 +1,7 @@
 # dns_python
-# use starlette by the web app (use uvicorn main:app --reload to run)
-# use sqlalchemy to build querys databases
-# use databases to async calls and connectios to database
-# in the file thread.py there is the process that studies the dns and does the audits of this (use python3 to run)
-# THANKS
+# uso starlette para el desarrollo web usar el comando (uvicorn main:app --reload) para correr la aplicación web
+# uso sqlalchemy para la construcción de querys
+# uso de databases para el llamado asincrónico de las consultas o ejecuciones de la base de datos
+# en el archivo thread.py, se encuentra la lógica que estudia los dominios y obtiene sus dns así mismo realiza la auditoría de estas
+
+GRACIAS
