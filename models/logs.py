@@ -5,15 +5,15 @@ from sqlalchemy import ForeignKeyConstraint
 metadata = sqlalchemy.MetaData()
 
 #use sqlalchemy to model table dns
-dnsTable = sqlalchemy.Table(
-    "dns",
+logs = sqlalchemy.Table(
+    "logs",
     metadata,
     sqlalchemy.Column("id", sqlalchemy.Integer, primary_key=True),
-    sqlalchemy.Column("dns", sqlalchemy.String),
     sqlalchemy.Column("id_domain", sqlalchemy.Integer),
+    sqlalchemy.Column("log", sqlalchemy.Text),
     sqlalchemy.Column("created_at", sqlalchemy.DateTime, server_default=func.now()),
     sqlalchemy.Column("updated_at", sqlalchemy.DateTime, onupdate=func.now()),
-    sqlalchemy.Column("state", sqlalchemy.SmallInteger),
+    sqlalchemy.Column("deleted_at", sqlalchemy.DateTime),
 
     ForeignKeyConstraint(
         ["id_domain"],
